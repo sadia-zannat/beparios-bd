@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
 
 const links = [
+  { label: "Free Seller Tools", href: "/tools", internal: true },
   { label: "Features", href: "#features" },
   { label: "How it works", href: "#how" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Built for", href: "#built-for" },
 ];
 
 export function LandingNav() {
