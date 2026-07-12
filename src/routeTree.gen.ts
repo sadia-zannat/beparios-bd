@@ -19,6 +19,7 @@ import { Route as ToolsIndexRouteImport } from './routes/tools/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as ToolsReturnLossRouteImport } from './routes/tools/return-loss'
 import { Route as ToolsProductPricingRouteImport } from './routes/tools/product-pricing'
+import { Route as ToolsInvoiceRouteImport } from './routes/tools/invoice'
 import { Route as ToolsCodProfitRouteImport } from './routes/tools/cod-profit'
 import { Route as ToolsAdsBreakevenRouteImport } from './routes/tools/ads-breakeven'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
@@ -78,6 +79,11 @@ const ToolsProductPricingRoute = ToolsProductPricingRouteImport.update({
   path: '/tools/product-pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsInvoiceRoute = ToolsInvoiceRouteImport.update({
+  id: '/tools/invoice',
+  path: '/tools/invoice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsCodProfitRoute = ToolsCodProfitRouteImport.update({
   id: '/tools/cod-profit',
   path: '/tools/cod-profit',
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/invoice': typeof ToolsInvoiceRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -153,6 +160,7 @@ export interface FileRoutesByTo {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/invoice': typeof ToolsInvoiceRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -174,6 +182,7 @@ export interface FileRoutesById {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/invoice': typeof ToolsInvoiceRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -196,6 +205,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
+    | '/tools/invoice'
     | '/tools/product-pricing'
     | '/tools/return-loss'
     | '/dashboard/'
@@ -215,6 +225,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
+    | '/tools/invoice'
     | '/tools/product-pricing'
     | '/tools/return-loss'
     | '/dashboard'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
+    | '/tools/invoice'
     | '/tools/product-pricing'
     | '/tools/return-loss'
     | '/dashboard/'
@@ -250,6 +262,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolsAdsBreakevenRoute: typeof ToolsAdsBreakevenRoute
   ToolsCodProfitRoute: typeof ToolsCodProfitRoute
+  ToolsInvoiceRoute: typeof ToolsInvoiceRoute
   ToolsProductPricingRoute: typeof ToolsProductPricingRoute
   ToolsReturnLossRoute: typeof ToolsReturnLossRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/product-pricing'
       fullPath: '/tools/product-pricing'
       preLoaderRoute: typeof ToolsProductPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/invoice': {
+      id: '/tools/invoice'
+      path: '/tools/invoice'
+      fullPath: '/tools/invoice'
+      preLoaderRoute: typeof ToolsInvoiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/cod-profit': {
@@ -419,6 +439,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolsAdsBreakevenRoute: ToolsAdsBreakevenRoute,
   ToolsCodProfitRoute: ToolsCodProfitRoute,
+  ToolsInvoiceRoute: ToolsInvoiceRoute,
   ToolsProductPricingRoute: ToolsProductPricingRoute,
   ToolsReturnLossRoute: ToolsReturnLossRoute,
   ToolsIndexRoute: ToolsIndexRoute,
