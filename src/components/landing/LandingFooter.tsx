@@ -6,9 +6,9 @@ export function LandingFooter() {
     {
       title: "Product",
       items: [
-        { label: "Features", href: "#features" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "How it works", href: "#how" },
+        { label: "Features", href: "/#features" },
+        { label: "Pricing", href: "/#pricing" },
+        { label: "How it works", href: "/#how" },
       ],
     },
     {
