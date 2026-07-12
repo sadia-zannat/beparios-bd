@@ -31,7 +31,18 @@ export const Route = createFileRoute("/")({
         content:
           "Free calculators and invoice tools for every Bangladeshi seller, plus a private dashboard for orders, inventory, expenses and profit.",
       },
+      {
+        property: "og:title",
+        content: "BepariOS BD — Free seller tools for Bangladesh",
+      },
+      {
+        property: "og:description",
+        content:
+          "Free calculators, invoice tools and a planned seller dashboard built for Bangladeshi online sellers.",
+      },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: LandingPage,
 });

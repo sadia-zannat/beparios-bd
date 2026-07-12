@@ -26,7 +26,9 @@ export const Route = createFileRoute("/tools/cod-profit")({
         content:
           "Calculate real COD profit after courier fees, COD charges, ads and returns.",
       },
+      { property: "og:url", content: "/tools/cod-profit" },
     ],
+    links: [{ rel: "canonical", href: "/tools/cod-profit" }],
   }),
   component: CodProfitPage,
 });

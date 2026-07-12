@@ -29,7 +29,9 @@ export const Route = createFileRoute("/tools/")({
         content:
           "Free calculators and invoice tools for every Bangladeshi seller.",
       },
+      { property: "og:url", content: "/tools" },
     ],
+    links: [{ rel: "canonical", href: "/tools" }],
   }),
   component: ToolsPage,
 });

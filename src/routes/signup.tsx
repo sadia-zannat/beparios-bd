@@ -5,7 +5,12 @@ import { Label } from "@/components/ui/label";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Create account — BepariOS BD" }] }),
+  head: () => ({
+    meta: [
+      { title: "Create account — BepariOS BD" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: SignupPage,
 });
 

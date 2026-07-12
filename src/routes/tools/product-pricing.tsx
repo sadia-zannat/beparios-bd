@@ -35,7 +35,9 @@ export const Route = createFileRoute("/tools/product-pricing")({
         content:
           "Set a safe selling price with target margin, platform fees and planned discount.",
       },
+      { property: "og:url", content: "/tools/product-pricing" },
     ],
+    links: [{ rel: "canonical", href: "/tools/product-pricing" }],
   }),
   component: ProductPricingPage,
 });

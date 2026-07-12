@@ -4,7 +4,12 @@ import { AppSidebar } from "@/components/dashboard/AppSidebar";
 import { TopHeader } from "@/components/dashboard/TopHeader";
 
 export const Route = createFileRoute("/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — BepariOS BD" }] }),
+  head: () => ({
+    meta: [
+      { title: "Dashboard — BepariOS BD" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: DashboardLayout,
 });
 

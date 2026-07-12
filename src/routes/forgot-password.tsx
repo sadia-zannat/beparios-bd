@@ -5,7 +5,12 @@ import { Label } from "@/components/ui/label";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 
 export const Route = createFileRoute("/forgot-password")({
-  head: () => ({ meta: [{ title: "Reset password — BepariOS BD" }] }),
+  head: () => ({
+    meta: [
+      { title: "Reset password — BepariOS BD" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: ForgotPage,
 });
 

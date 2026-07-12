@@ -90,7 +90,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Free seller tools and business management for Bangladesh's online sellers.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "BepariOS BD" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "BepariOS BD" },
+      {
+        name: "twitter:description",
+        content:
+          "Free seller tools and business management for Bangladesh's online sellers.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
