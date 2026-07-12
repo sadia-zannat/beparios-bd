@@ -24,21 +24,21 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "BepariOS BD — Free seller tools & business management for BD online sellers",
+          "BepariOS BD — Free Seller Tools",
       },
       {
         name: "description",
         content:
-          "Free calculators and invoice tools for every Bangladeshi seller, plus a private dashboard for orders, inventory, expenses and profit.",
+          "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
       {
         property: "og:title",
-        content: "BepariOS BD — Free seller tools for Bangladesh",
+        content: "BepariOS BD — Free Seller Tools",
       },
       {
         property: "og:description",
         content:
-          "Free calculators, invoice tools and a planned seller dashboard built for Bangladeshi online sellers.",
+          "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
       { property: "og:url", content: "/" },
     ],

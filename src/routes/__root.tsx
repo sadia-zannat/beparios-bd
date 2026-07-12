@@ -77,31 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BepariOS BD — Free seller tools for Bangladesh's online sellers" },
+      { title: "BepariOS BD — Free Seller Tools" },
       {
         name: "description",
         content:
-          "BepariOS BD: free calculators, invoice tools and a private dashboard for orders, inventory, expenses and profit — built for Bangladeshi online sellers.",
+          "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
-      { property: "og:title", content: "BepariOS BD" },
+      { property: "og:title", content: "BepariOS BD — Free Seller Tools" },
       {
         property: "og:description",
         content:
-          "Free seller tools and business management for Bangladesh's online sellers.",
+          "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "BepariOS BD" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "BepariOS BD" },
+      { name: "twitter:title", content: "BepariOS BD — Free Seller Tools" },
       {
         name: "twitter:description",
         content:
-          "Free seller tools and business management for Bangladesh's online sellers.",
+          "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/af4b7087-735c-48da-8d68-acc9c2b10c28" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/af4b7087-735c-48da-8d68-acc9c2b10c28" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
