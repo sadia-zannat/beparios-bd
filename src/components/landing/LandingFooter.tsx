@@ -35,8 +35,7 @@ export function LandingFooter() {
           <div className="space-y-3">
             <Logo />
             <p className="text-sm text-muted-foreground">
-              The all-in-one management tool for Bangladeshi Facebook &
-              Instagram sellers.
+              Free seller tools and business management for Bangladesh's online sellers.
             </p>
           </div>
           {cols.map((c) => (
