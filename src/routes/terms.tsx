@@ -16,9 +16,9 @@ export const Route = createFileRoute("/terms")({
         content:
           "Rules and expectations for using the free BepariOS BD seller tools.",
       },
-      { property: "og:url", content: "/terms" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/terms" },
     ],
-    links: [{ rel: "canonical", href: "/terms" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/terms" }],
   }),
   component: TermsPage,
 });

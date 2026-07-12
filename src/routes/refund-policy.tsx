@@ -16,9 +16,9 @@ export const Route = createFileRoute("/refund-policy")({
         content:
           "No paid product is currently offered, so refunds do not apply. A revised policy will be published before paid services launch.",
       },
-      { property: "og:url", content: "/refund-policy" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/refund-policy" },
     ],
-    links: [{ rel: "canonical", href: "/refund-policy" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/refund-policy" }],
   }),
   component: RefundPage,
 });

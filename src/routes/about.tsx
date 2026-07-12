@@ -16,9 +16,9 @@ export const Route = createFileRoute("/about")({
         content:
           "Free seller tools for Bangladesh, independently built as a SaaS and portfolio project.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/about" }],
   }),
   component: AboutPage,
 });

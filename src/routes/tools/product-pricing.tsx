@@ -35,9 +35,9 @@ export const Route = createFileRoute("/tools/product-pricing")({
         content:
           "Set a safe selling price with target margin, platform fees and planned discount.",
       },
-      { property: "og:url", content: "/tools/product-pricing" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/tools/product-pricing" },
     ],
-    links: [{ rel: "canonical", href: "/tools/product-pricing" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/tools/product-pricing" }],
   }),
   component: ProductPricingPage,
 });

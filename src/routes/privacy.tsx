@@ -16,9 +16,9 @@ export const Route = createFileRoute("/privacy")({
         content:
           "The BepariOS BD free tools run locally in your browser and don't intentionally upload calculator or invoice data.",
       },
-      { property: "og:url", content: "/privacy" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/privacy" },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/privacy" }],
   }),
   component: PrivacyPage,
 });

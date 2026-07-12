@@ -40,9 +40,9 @@ export const Route = createFileRoute("/")({
         content:
           "Free COD profit, pricing, ads break-even, return loss and invoice tools for Bangladeshi online sellers.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/" }],
   }),
   component: LandingPage,
 });
