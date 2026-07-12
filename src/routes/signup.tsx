@@ -12,8 +12,8 @@ export const Route = createFileRoute("/signup")({
 function SignupPage() {
   return (
     <AuthLayout
-      title="Start your free trial"
-      subtitle="14 days free, no card required."
+      title="Create your seller account"
+      subtitle="Set up your free seller workspace."
       footer={
         <>
           Already have an account?{" "}
