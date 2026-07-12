@@ -17,6 +17,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsIndexRouteImport } from './routes/tools/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as ToolsProductPricingRouteImport } from './routes/tools/product-pricing'
 import { Route as ToolsCodProfitRouteImport } from './routes/tools/cod-profit'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as DashboardReportsRouteImport } from './routes/dashboard.reports'
@@ -64,6 +65,11 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DashboardRoute,
+} as any)
+const ToolsProductPricingRoute = ToolsProductPricingRouteImport.update({
+  id: '/tools/product-pricing',
+  path: '/tools/product-pricing',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsCodProfitRoute = ToolsCodProfitRouteImport.update({
   id: '/tools/cod-profit',
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -131,6 +138,7 @@ export interface FileRoutesByTo {
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard': typeof DashboardIndexRoute
   '/tools': typeof ToolsIndexRoute
 }
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
+  '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -168,6 +177,7 @@ export interface FileRouteTypes {
     | '/dashboard/reports'
     | '/dashboard/settings'
     | '/tools/cod-profit'
+    | '/tools/product-pricing'
     | '/dashboard/'
     | '/tools/'
   fileRoutesByTo: FileRoutesByTo
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
     | '/dashboard/reports'
     | '/dashboard/settings'
     | '/tools/cod-profit'
+    | '/tools/product-pricing'
     | '/dashboard'
     | '/tools'
   id:
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/dashboard/reports'
     | '/dashboard/settings'
     | '/tools/cod-profit'
+    | '/tools/product-pricing'
     | '/dashboard/'
     | '/tools/'
   fileRoutesById: FileRoutesById
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolsCodProfitRoute: typeof ToolsCodProfitRoute
+  ToolsProductPricingRoute: typeof ToolsProductPricingRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
+    }
+    '/tools/product-pricing': {
+      id: '/tools/product-pricing'
+      path: '/tools/product-pricing'
+      fullPath: '/tools/product-pricing'
+      preLoaderRoute: typeof ToolsProductPricingRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/tools/cod-profit': {
       id: '/tools/cod-profit'
@@ -358,18 +378,9 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolsCodProfitRoute: ToolsCodProfitRoute,
+  ToolsProductPricingRoute: ToolsProductPricingRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
