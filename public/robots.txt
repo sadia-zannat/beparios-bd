@@ -4,3 +4,5 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /signup
 Disallow: /forgot-password
+
+Sitemap: https://bepariosbd.lovable.app/sitemap.xml
