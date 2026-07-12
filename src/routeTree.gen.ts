@@ -19,6 +19,7 @@ import { Route as ToolsIndexRouteImport } from './routes/tools/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as ToolsProductPricingRouteImport } from './routes/tools/product-pricing'
 import { Route as ToolsCodProfitRouteImport } from './routes/tools/cod-profit'
+import { Route as ToolsAdsBreakevenRouteImport } from './routes/tools/ads-breakeven'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as DashboardReportsRouteImport } from './routes/dashboard.reports'
 import { Route as DashboardProductsRouteImport } from './routes/dashboard.products'
@@ -76,6 +77,11 @@ const ToolsCodProfitRoute = ToolsCodProfitRouteImport.update({
   path: '/tools/cod-profit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsAdsBreakevenRoute = ToolsAdsBreakevenRouteImport.update({
+  id: '/tools/ads-breakeven',
+  path: '/tools/ads-breakeven',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/products': typeof DashboardProductsRoute
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/dashboard/products': typeof DashboardProductsRoute
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -156,6 +164,7 @@ export interface FileRoutesById {
   '/dashboard/products': typeof DashboardProductsRoute
   '/dashboard/reports': typeof DashboardReportsRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/dashboard/products'
     | '/dashboard/reports'
     | '/dashboard/settings'
+    | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
     | '/dashboard/'
@@ -193,6 +203,7 @@ export interface FileRouteTypes {
     | '/dashboard/products'
     | '/dashboard/reports'
     | '/dashboard/settings'
+    | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
     | '/dashboard'
@@ -211,6 +222,7 @@ export interface FileRouteTypes {
     | '/dashboard/products'
     | '/dashboard/reports'
     | '/dashboard/settings'
+    | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
     | '/dashboard/'
@@ -224,6 +236,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsAdsBreakevenRoute: typeof ToolsAdsBreakevenRoute
   ToolsCodProfitRoute: typeof ToolsCodProfitRoute
   ToolsProductPricingRoute: typeof ToolsProductPricingRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
@@ -299,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/cod-profit'
       fullPath: '/tools/cod-profit'
       preLoaderRoute: typeof ToolsCodProfitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/ads-breakeven': {
+      id: '/tools/ads-breakeven'
+      path: '/tools/ads-breakeven'
+      fullPath: '/tools/ads-breakeven'
+      preLoaderRoute: typeof ToolsAdsBreakevenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/settings': {
@@ -377,6 +397,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsAdsBreakevenRoute: ToolsAdsBreakevenRoute,
   ToolsCodProfitRoute: ToolsCodProfitRoute,
   ToolsProductPricingRoute: ToolsProductPricingRoute,
   ToolsIndexRoute: ToolsIndexRoute,
