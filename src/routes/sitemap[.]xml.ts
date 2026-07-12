@@ -1,17 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
+// TODO: replace with your project URL once a project name or custom domain is set.
 const BASE_URL = "";
+
+interface SitemapEntry {
+  path: string;
+  changefreq: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+  priority: string;
+}
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries = [
+        const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/login", changefreq: "monthly", priority: "0.5" },
-          { path: "/signup", changefreq: "monthly", priority: "0.7" },
-          { path: "/forgot-password", changefreq: "yearly", priority: "0.3" },
+          { path: "/tools", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/cod-profit", changefreq: "monthly", priority: "0.8" },
+          { path: "/tools/product-pricing", changefreq: "monthly", priority: "0.8" },
+          { path: "/tools/ads-breakeven", changefreq: "monthly", priority: "0.8" },
+          { path: "/tools/return-loss", changefreq: "monthly", priority: "0.8" },
+          { path: "/tools/invoice", changefreq: "monthly", priority: "0.8" },
+          { path: "/about", changefreq: "monthly", priority: "0.5" },
+          { path: "/contact", changefreq: "monthly", priority: "0.5" },
+          { path: "/privacy", changefreq: "yearly", priority: "0.3" },
+          { path: "/terms", changefreq: "yearly", priority: "0.3" },
+          { path: "/refund-policy", changefreq: "yearly", priority: "0.3" },
+          { path: "/disclaimer", changefreq: "yearly", priority: "0.3" },
         ];
         const urls = entries
           .map(
