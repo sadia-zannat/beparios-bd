@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/dashboard/PageHeader";
-import { OrderStatusBadge } from "@/routes/dashboard.index";
+import { OrderStatusBadge } from "@/components/dashboard/OrderStatusBadge";
 import { orders } from "@/lib/demo-data";
 import { formatBDT, formatDate } from "@/lib/format";
 
