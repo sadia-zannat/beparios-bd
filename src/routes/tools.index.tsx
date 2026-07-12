@@ -14,7 +14,7 @@ import { LandingFooter } from "@/components/landing/LandingFooter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-export const Route = createFileRoute("/tools")({
+export const Route = createFileRoute("/tools/")({
   head: () => ({
     meta: [
       { title: "Free Seller Tools — BepariOS BD" },

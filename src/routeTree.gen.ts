@@ -9,13 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as ToolsCodProfitRouteImport } from './routes/tools.cod-profit'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
@@ -25,11 +25,6 @@ import { Route as DashboardOrdersRouteImport } from './routes/dashboard.orders'
 import { Route as DashboardExpensesRouteImport } from './routes/dashboard.expenses'
 import { Route as DashboardCustomersRouteImport } from './routes/dashboard.customers'
 
-const ToolsRoute = ToolsRouteImport.update({
-  id: '/tools',
-  path: '/tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -60,15 +55,20 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DashboardRoute,
 } as any)
 const ToolsCodProfitRoute = ToolsCodProfitRouteImport.update({
-  id: '/cod-profit',
-  path: '/cod-profit',
-  getParentRoute: () => ToolsRoute,
+  id: '/tools/cod-profit',
+  path: '/tools/cod-profit',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
   id: '/settings',
@@ -108,7 +108,6 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tools': typeof ToolsRouteWithChildren
   '/dashboard/customers': typeof DashboardCustomersRoute
   '/dashboard/expenses': typeof DashboardExpensesRoute
   '/dashboard/orders': typeof DashboardOrdersRoute
@@ -117,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -124,7 +124,6 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tools': typeof ToolsRouteWithChildren
   '/dashboard/customers': typeof DashboardCustomersRoute
   '/dashboard/expenses': typeof DashboardExpensesRoute
   '/dashboard/orders': typeof DashboardOrdersRoute
@@ -133,6 +132,7 @@ export interface FileRoutesByTo {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -142,7 +142,6 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tools': typeof ToolsRouteWithChildren
   '/dashboard/customers': typeof DashboardCustomersRoute
   '/dashboard/expenses': typeof DashboardExpensesRoute
   '/dashboard/orders': typeof DashboardOrdersRoute
@@ -151,6 +150,7 @@ export interface FileRoutesById {
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,7 +161,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/sitemap.xml'
-    | '/tools'
     | '/dashboard/customers'
     | '/dashboard/expenses'
     | '/dashboard/orders'
@@ -170,6 +169,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/cod-profit'
     | '/dashboard/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,7 +177,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/sitemap.xml'
-    | '/tools'
     | '/dashboard/customers'
     | '/dashboard/expenses'
     | '/dashboard/orders'
@@ -186,6 +185,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/cod-profit'
     | '/dashboard'
+    | '/tools'
   id:
     | '__root__'
     | '/'
@@ -194,7 +194,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/sitemap.xml'
-    | '/tools'
     | '/dashboard/customers'
     | '/dashboard/expenses'
     | '/dashboard/orders'
@@ -203,6 +202,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/tools/cod-profit'
     | '/dashboard/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -212,18 +212,12 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  ToolsRoute: typeof ToolsRouteWithChildren
+  ToolsCodProfitRoute: typeof ToolsCodProfitRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tools': {
-      id: '/tools'
-      path: '/tools'
-      fullPath: '/tools'
-      preLoaderRoute: typeof ToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -266,6 +260,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/'
@@ -275,10 +276,10 @@ declare module '@tanstack/react-router' {
     }
     '/tools/cod-profit': {
       id: '/tools/cod-profit'
-      path: '/cod-profit'
+      path: '/tools/cod-profit'
       fullPath: '/tools/cod-profit'
       preLoaderRoute: typeof ToolsCodProfitRouteImport
-      parentRoute: typeof ToolsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/dashboard/settings': {
       id: '/dashboard/settings'
@@ -349,16 +350,6 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
   DashboardRouteChildren,
 )
 
-interface ToolsRouteChildren {
-  ToolsCodProfitRoute: typeof ToolsCodProfitRoute
-}
-
-const ToolsRouteChildren: ToolsRouteChildren = {
-  ToolsCodProfitRoute: ToolsCodProfitRoute,
-}
-
-const ToolsRouteWithChildren = ToolsRoute._addFileChildren(ToolsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRouteWithChildren,
@@ -366,7 +357,8 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  ToolsRoute: ToolsRouteWithChildren,
+  ToolsCodProfitRoute: ToolsCodProfitRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
