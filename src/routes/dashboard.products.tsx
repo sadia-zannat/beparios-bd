@@ -16,7 +16,7 @@ import { products } from "@/lib/demo-data";
 import { formatBDT, formatNumber } from "@/lib/format";
 
 export const Route = createFileRoute("/dashboard/products")({
-  head: () => ({ meta: [{ title: "Products — ShopPilot BD" }] }),
+  head: () => ({ meta: [{ title: "Products — BepariOS BD" }] }),
   component: ProductsPage,
 });
 

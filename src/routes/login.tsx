@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Log in — ShopPilot BD" }] }),
+  head: () => ({ meta: [{ title: "Log in — BepariOS BD" }] }),
   component: LoginPage,
 });
 
@@ -13,7 +13,7 @@ function LoginPage() {
   return (
     <AuthLayout
       title="Welcome back"
-      subtitle="Log in to your ShopPilot BD dashboard."
+      subtitle="Log in to your BepariOS BD dashboard."
       footer={
         <>
           Don't have an account?{" "}

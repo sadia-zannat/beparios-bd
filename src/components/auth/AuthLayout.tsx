@@ -32,7 +32,7 @@ export function AuthLayout({
           )}
         </div>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ShopPilot BD
+          © {new Date().getFullYear()} BepariOS BD
         </p>
       </div>
       <div className="relative hidden overflow-hidden bg-primary lg:block">
@@ -41,7 +41,7 @@ export function AuthLayout({
           <div />
           <div>
             <blockquote className="text-2xl font-semibold leading-snug">
-              "ShopPilot BD replaced 4 Excel sheets and a notebook. My profit
+              "BepariOS BD replaced 4 Excel sheets and a notebook. My profit
               actually makes sense now."
             </blockquote>
             <div className="mt-6">
