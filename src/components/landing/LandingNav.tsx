@@ -6,10 +6,10 @@ import { Logo } from "@/components/Logo";
 
 const links = [
   { label: "Free Seller Tools", href: "/tools", internal: true },
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Built for", href: "#built-for" },
+  { label: "Features", href: "/#features" },
+  { label: "How it works", href: "/#how" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Built for", href: "/#built-for" },
 ];
 
 export function LandingNav() {
