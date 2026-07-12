@@ -16,9 +16,9 @@ export const Route = createFileRoute("/disclaimer")({
         content:
           "Estimates only — verify every number and invoice before you rely on it.",
       },
-      { property: "og:url", content: "/disclaimer" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/disclaimer" },
     ],
-    links: [{ rel: "canonical", href: "/disclaimer" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/disclaimer" }],
   }),
   component: DisclaimerPage,
 });

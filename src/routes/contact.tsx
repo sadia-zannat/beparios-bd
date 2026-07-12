@@ -17,9 +17,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Reach BepariOS BD by email for feedback, bug reports and feature requests.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

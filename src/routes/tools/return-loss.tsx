@@ -35,9 +35,9 @@ export const Route = createFileRoute("/tools/return-loss")({
         content:
           "See the real monthly cost of returns and how much you save by lowering your return rate.",
       },
-      { property: "og:url", content: "/tools/return-loss" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/tools/return-loss" },
     ],
-    links: [{ rel: "canonical", href: "/tools/return-loss" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/tools/return-loss" }],
   }),
   component: ReturnLossPage,
 });

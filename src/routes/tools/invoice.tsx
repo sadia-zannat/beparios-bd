@@ -42,9 +42,9 @@ export const Route = createFileRoute("/tools/invoice")({
         content:
           "Generate clean BDT invoices for your customers in seconds. Print or save as PDF from your browser.",
       },
-      { property: "og:url", content: "/tools/invoice" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/tools/invoice" },
     ],
-    links: [{ rel: "canonical", href: "/tools/invoice" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/tools/invoice" }],
   }),
   component: InvoicePage,
 });

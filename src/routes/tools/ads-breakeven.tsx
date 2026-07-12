@@ -35,9 +35,9 @@ export const Route = createFileRoute("/tools/ads-breakeven")({
         content:
           "Know your break-even CPA and ROAS before scaling Facebook ads.",
       },
-      { property: "og:url", content: "/tools/ads-breakeven" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/tools/ads-breakeven" },
     ],
-    links: [{ rel: "canonical", href: "/tools/ads-breakeven" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/tools/ads-breakeven" }],
   }),
   component: AdsBreakevenPage,
 });

@@ -29,9 +29,9 @@ export const Route = createFileRoute("/tools/")({
         content:
           "Free calculators and invoice tools for every Bangladeshi seller.",
       },
-      { property: "og:url", content: "/tools" },
+      { property: "og:url", content: "https://bepariosbd.lovable.app/tools" },
     ],
-    links: [{ rel: "canonical", href: "/tools" }],
+    links: [{ rel: "canonical", href: "https://bepariosbd.lovable.app/tools" }],
   }),
   component: ToolsPage,
 });
