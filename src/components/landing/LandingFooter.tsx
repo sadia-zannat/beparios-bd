@@ -57,7 +57,7 @@ export function LandingFooter() {
           ))}
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} ShopPilot BD. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BepariOS BD. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/login" className="hover:text-foreground">
               Log in
