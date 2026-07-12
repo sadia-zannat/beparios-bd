@@ -167,7 +167,9 @@ function compute(v: Record<keyof FormState, number>): Results {
   const discountAmount = listPrice - finalPrice;
   const feeAmount = finalPrice * feeRate;
   const profit = finalPrice - baseCost - feeAmount;
-  const actualMargin = finalPrice > 0 ? (profit / finalPrice) * 100 : 0;
+  const rawActualMargin =
+         finalPrice > 0 ? (profit / finalPrice) * 100 : 0;
+  const actualMargin = Number(rawActualMargin.toFixed(2)); 
   const markup = baseCost > 0 ? (profit / baseCost) * 100 : 0;
 
   let status: Results["status"];
