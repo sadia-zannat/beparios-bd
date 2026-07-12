@@ -101,9 +101,9 @@ function ToolsPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map((t) => (
-              <Link
+              <a
                 key={t.to}
-                to={t.to}
+                href={t.to}
                 className="group block focus:outline-none"
               >
                 <Card className="h-full border-border/70 transition-shadow group-hover:shadow-md group-focus-visible:ring-2 group-focus-visible:ring-primary">
@@ -121,7 +121,7 @@ function ToolsPage() {
                     </span>
                   </CardContent>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
 
