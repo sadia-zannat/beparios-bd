@@ -41,12 +41,14 @@ export function AuthLayout({
           <div />
           <div>
             <blockquote className="text-2xl font-semibold leading-snug">
-              "BepariOS BD replaced 4 Excel sheets and a notebook. My profit
-              actually makes sense now."
+              Free seller tools and business management for Bangladesh's
+              online sellers.
             </blockquote>
             <div className="mt-6">
-              <p className="font-semibold">Farzana Islam</p>
-              <p className="text-sm opacity-80">Owner, Kotha Boutique · Dhaka</p>
+              <p className="text-sm opacity-80">
+                Orders, inventory, expenses and profit — in one clean
+                dashboard.
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-2 text-sm opacity-80">
