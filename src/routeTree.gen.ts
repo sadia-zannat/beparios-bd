@@ -66,9 +66,9 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   getParentRoute: () => DashboardRoute,
 } as any)
 const ToolsCodProfitRoute = ToolsCodProfitRouteImport.update({
-  id: '/cod-profit',
-  path: '/cod-profit',
-  getParentRoute: () => ToolsRoute,
+  id: '/tools/cod-profit',
+  path: '/tools/cod-profit',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
   id: '/settings',
@@ -212,6 +212,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsCodProfitRoute: typeof ToolsCodProfitRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
@@ -275,10 +276,10 @@ declare module '@tanstack/react-router' {
     }
     '/tools/cod-profit': {
       id: '/tools/cod-profit'
-      path: '/cod-profit'
+      path: '/tools/cod-profit'
       fullPath: '/tools/cod-profit'
       preLoaderRoute: typeof ToolsCodProfitRouteImport
-      parentRoute: typeof ToolsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/dashboard/settings': {
       id: '/dashboard/settings'
@@ -356,18 +357,9 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsCodProfitRoute: ToolsCodProfitRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
