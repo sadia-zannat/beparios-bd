@@ -17,6 +17,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsIndexRouteImport } from './routes/tools/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as ToolsReturnLossRouteImport } from './routes/tools/return-loss'
 import { Route as ToolsProductPricingRouteImport } from './routes/tools/product-pricing'
 import { Route as ToolsCodProfitRouteImport } from './routes/tools/cod-profit'
 import { Route as ToolsAdsBreakevenRouteImport } from './routes/tools/ads-breakeven'
@@ -66,6 +67,11 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DashboardRoute,
+} as any)
+const ToolsReturnLossRoute = ToolsReturnLossRouteImport.update({
+  id: '/tools/return-loss',
+  path: '/tools/return-loss',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsProductPricingRoute = ToolsProductPricingRouteImport.update({
   id: '/tools/product-pricing',
@@ -129,6 +135,7 @@ export interface FileRoutesByFullPath {
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
+  '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
+  '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard': typeof DashboardIndexRoute
   '/tools': typeof ToolsIndexRoute
 }
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/tools/ads-breakeven': typeof ToolsAdsBreakevenRoute
   '/tools/cod-profit': typeof ToolsCodProfitRoute
   '/tools/product-pricing': typeof ToolsProductPricingRoute
+  '/tools/return-loss': typeof ToolsReturnLossRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
+    | '/tools/return-loss'
     | '/dashboard/'
     | '/tools/'
   fileRoutesByTo: FileRoutesByTo
@@ -206,6 +216,7 @@ export interface FileRouteTypes {
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
+    | '/tools/return-loss'
     | '/dashboard'
     | '/tools'
   id:
@@ -225,6 +236,7 @@ export interface FileRouteTypes {
     | '/tools/ads-breakeven'
     | '/tools/cod-profit'
     | '/tools/product-pricing'
+    | '/tools/return-loss'
     | '/dashboard/'
     | '/tools/'
   fileRoutesById: FileRoutesById
@@ -239,6 +251,7 @@ export interface RootRouteChildren {
   ToolsAdsBreakevenRoute: typeof ToolsAdsBreakevenRoute
   ToolsCodProfitRoute: typeof ToolsCodProfitRoute
   ToolsProductPricingRoute: typeof ToolsProductPricingRoute
+  ToolsReturnLossRoute: typeof ToolsReturnLossRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
@@ -299,6 +312,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
+    }
+    '/tools/return-loss': {
+      id: '/tools/return-loss'
+      path: '/tools/return-loss'
+      fullPath: '/tools/return-loss'
+      preLoaderRoute: typeof ToolsReturnLossRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/tools/product-pricing': {
       id: '/tools/product-pricing'
@@ -400,6 +420,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsAdsBreakevenRoute: ToolsAdsBreakevenRoute,
   ToolsCodProfitRoute: ToolsCodProfitRoute,
   ToolsProductPricingRoute: ToolsProductPricingRoute,
+  ToolsReturnLossRoute: ToolsReturnLossRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
