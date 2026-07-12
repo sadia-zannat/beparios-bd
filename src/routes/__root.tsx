@@ -77,17 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ShopPilot BD — Manage your Facebook & Instagram shop" },
+      { title: "BepariOS BD — Free seller tools for Bangladesh's online sellers" },
       {
         name: "description",
         content:
-          "ShopPilot BD helps Bangladeshi F-commerce sellers manage orders, products, stock, customers, expenses and profit from one clean dashboard.",
+          "BepariOS BD: free calculators, invoice tools and a private dashboard for orders, inventory, expenses and profit — built for Bangladeshi online sellers.",
       },
-      { property: "og:title", content: "ShopPilot BD" },
+      { property: "og:title", content: "BepariOS BD" },
       {
         property: "og:description",
         content:
-          "One dashboard for orders, stock, customers, expenses and profit — built for Bangladeshi online sellers.",
+          "Free seller tools and business management for Bangladesh's online sellers.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -8,7 +8,7 @@ export function Logo({ className = "" }: { className?: string }) {
         <Package className="h-5 w-5" />
       </span>
       <span className="text-lg font-bold tracking-tight">
-        ShopPilot <span className="text-primary">BD</span>
+        BepariOS <span className="text-primary">BD</span>
       </span>
     </Link>
   );

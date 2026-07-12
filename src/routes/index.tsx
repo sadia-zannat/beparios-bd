@@ -3,10 +3,11 @@ import {
   ArrowRight,
   BarChart3,
   Boxes,
+  Calculator,
   CheckCircle2,
   ClipboardList,
-  MessageCircle,
   ShieldCheck,
+  Store,
   Truck,
   Users,
   Wallet,
@@ -21,11 +22,14 @@ import { formatBDT } from "@/lib/format";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ShopPilot BD — All-in-one dashboard for F-commerce sellers" },
+      {
+        title:
+          "BepariOS BD — Free seller tools & business management for BD online sellers",
+      },
       {
         name: "description",
         content:
-          "Run your Facebook & Instagram shop from one dashboard: orders, stock, customers, expenses, invoices and real profit in BDT.",
+          "Free calculators and invoice tools for every Bangladeshi seller, plus a private dashboard for orders, inventory, expenses and profit.",
       },
     ],
   }),
@@ -37,11 +41,10 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       <LandingNav />
       <Hero />
-      <SocialProof />
       <Features />
       <HowItWorks />
       <Pricing />
-      <Testimonials />
+      <BuiltFor />
       <CTA />
       <LandingFooter />
     </div>
@@ -59,35 +62,37 @@ function Hero() {
             className="mb-5 rounded-full border border-border/60 px-3 py-1 text-xs font-medium"
           >
             <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-            Built for Bangladeshi F-commerce sellers
+            Built for Bangladesh's online sellers
           </Badge>
           <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
-            Run your Facebook shop like a{" "}
-            <span className="text-primary">real business.</span>
+            Free seller tools for{" "}
+            <span className="text-primary">Bangladesh's online sellers.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-            ShopPilot BD keeps your orders, stock, customers, expenses and
-            profit in one clean dashboard — so you stop losing money in
-            Messenger chats and Excel sheets.
+            BepariOS BD gives every Bangladeshi seller free calculators and
+            invoice tools — plus a private dashboard to manage orders,
+            inventory, expenses and profit in one place.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button size="lg" asChild>
-              <Link to="/signup">
-                Start free — 14 days <ArrowRight className="ml-1 h-4 w-4" />
+              <Link to="/tools">
+                Use Free Seller Tools <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="#how">See how it works</a>
+              <Link to="/dashboard">View Dashboard Demo</Link>
             </Button>
           </div>
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            {["No card required", "Bangla support", "Cancel anytime"].map(
-              (i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary" /> {i}
-                </li>
-              ),
-            )}
+            {[
+              "Free calculators & invoice tools",
+              "Bangla-friendly, BDT native",
+              "No sign-up to try the tools",
+            ].map((i) => (
+              <li key={i} className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> {i}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -114,7 +119,7 @@ function HeroCard() {
             <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/40" />
           </div>
           <span className="text-xs text-muted-foreground">
-            shoppilot.bd/dashboard
+            beparios.bd/dashboard
           </span>
         </div>
         <CardContent className="space-y-5 p-5">
@@ -135,7 +140,7 @@ function HeroCard() {
           <div className="rounded-lg border border-border bg-card p-4">
             <div className="mb-3 flex items-center justify-between">
               <p className="text-sm font-semibold">Recent orders</p>
-              <span className="text-xs text-muted-foreground">Live</span>
+              <span className="text-xs text-muted-foreground">Demo</span>
             </div>
             <ul className="divide-y divide-border text-sm">
               {[
@@ -167,21 +172,12 @@ function HeroCard() {
   );
 }
 
-function SocialProof() {
-  return (
-    <section className="border-y border-border/60 bg-muted/30 py-6">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-4 text-sm text-muted-foreground sm:px-6">
-        <span className="font-medium">Trusted by 2,000+ BD sellers on</span>
-        <span className="font-semibold text-foreground">Facebook Shops</span>
-        <span className="font-semibold text-foreground">Instagram</span>
-        <span className="font-semibold text-foreground">Daraz</span>
-        <span className="font-semibold text-foreground">WhatsApp Business</span>
-      </div>
-    </section>
-  );
-}
-
 const features = [
+  {
+    icon: Calculator,
+    title: "Free seller calculators",
+    desc: "COD profit, product pricing, ad break-even and return-loss calculators — free for every seller.",
+  },
   {
     icon: ClipboardList,
     title: "Order management",
@@ -223,11 +219,10 @@ function Features() {
             Features
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            Everything you need to run your online shop
+            Free tools + a private business dashboard
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Purpose-built for Bangladeshi sellers — from your first order to
-            your thousandth.
+            Use the calculators for free, or sign in to run your whole shop.
           </p>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -255,23 +250,23 @@ function HowItWorks() {
   const steps = [
     {
       n: 1,
-      title: "Add your products",
-      desc: "Upload your catalogue with price, cost and stock. Takes less than 10 minutes.",
+      title: "Try the free tools",
+      desc: "Use the COD, pricing and ad break-even calculators — no sign-up needed.",
     },
     {
       n: 2,
-      title: "Log orders as they come",
-      desc: "From every Messenger inbox, Instagram DM or Facebook Live — one click, one order.",
+      title: "Add your products",
+      desc: "Upload your catalogue with price, cost and stock in the dashboard.",
     },
     {
       n: 3,
-      title: "Track courier & COD",
-      desc: "Mark shipped, delivered or returned. Know exactly how much money is on the road.",
+      title: "Log orders & courier",
+      desc: "Track every Messenger, Instagram or Live order and mark courier status.",
     },
     {
       n: 4,
       title: "See real profit",
-      desc: "Deduct ad spend, courier and packaging automatically. Real profit, not vanity revenue.",
+      desc: "Deduct ad spend, courier and packaging automatically to see net profit.",
     },
   ];
   return (
@@ -306,24 +301,27 @@ function HowItWorks() {
 
 const plans = [
   {
-    name: "Starter",
+    name: "Free Tools",
     price: 0,
-    tag: "Free forever",
-    desc: "For sellers just getting started.",
+    tag: "Available now",
+    desc: "Free calculators and invoice generator for every seller.",
     features: [
-      "Up to 50 orders/month",
-      "50 products",
-      "Basic reports",
-      "1 team member",
+      "COD Profit Calculator",
+      "Product Pricing Calculator",
+      "Ads Break-even Calculator",
+      "Return Loss Calculator",
+      "Free Invoice Generator",
     ],
-    cta: "Start free",
+    cta: "Use free tools",
+    ctaTo: "/tools" as const,
     highlight: false,
+    available: true,
   },
   {
     name: "Growth",
     price: 999,
-    tag: "Most popular",
-    desc: "For sellers doing 200+ orders a month.",
+    tag: "Coming later",
+    desc: "Planned plan for shops doing 200+ orders a month.",
     features: [
       "Unlimited orders",
       "Unlimited products",
@@ -331,14 +329,16 @@ const plans = [
       "Low-stock alerts",
       "3 team members",
     ],
-    cta: "Try Growth",
+    cta: "Preview dashboard",
+    ctaTo: "/dashboard" as const,
     highlight: true,
+    available: false,
   },
   {
     name: "Business",
     price: 2499,
-    tag: "For scaling shops",
-    desc: "For established brands with multiple channels.",
+    tag: "Coming later",
+    desc: "Planned plan for established brands with multiple channels.",
     features: [
       "Everything in Growth",
       "Invoice branding",
@@ -346,8 +346,10 @@ const plans = [
       "Priority Bangla support",
       "10 team members",
     ],
-    cta: "Talk to sales",
+    cta: "Preview dashboard",
+    ctaTo: "/dashboard" as const,
     highlight: false,
+    available: false,
   },
 ];
 
@@ -357,13 +359,14 @@ function Pricing() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Pricing
+            Planned Pricing
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            Simple, honest pricing in Taka
+            Free tools today. Paid plans coming later.
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Start free. Upgrade only when your shop grows.
+            The calculators and invoice generator are free. Paid plans below are
+            planned and not yet available for purchase.
           </p>
         </div>
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -372,11 +375,15 @@ function Pricing() {
               key={p.name}
               className={`relative border-border/70 ${p.highlight ? "border-primary shadow-lg ring-1 ring-primary/30" : ""}`}
             >
-              {p.highlight && (
-                <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                  {p.tag}
-                </span>
-              )}
+              <span
+                className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-xs font-semibold ${
+                  p.available
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground border border-border"
+                }`}
+              >
+                {p.tag}
+              </span>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
@@ -385,7 +392,7 @@ function Pricing() {
                     {p.price === 0 ? "৳0" : formatBDT(p.price)}
                   </span>
                   <span className="text-sm text-muted-foreground">
-                    {p.price === 0 ? "" : "/month"}
+                    {p.price === 0 ? "" : "/month (planned)"}
                   </span>
                 </div>
                 <Button
@@ -393,7 +400,7 @@ function Pricing() {
                   variant={p.highlight ? "default" : "outline"}
                   asChild
                 >
-                  <Link to="/signup">{p.cta}</Link>
+                  <Link to={p.ctaTo}>{p.cta}</Link>
                 </Button>
                 <ul className="mt-6 space-y-2.5">
                   {p.features.map((f) => (
@@ -415,54 +422,43 @@ function Pricing() {
   );
 }
 
-const testimonials = [
-  {
-    name: "Farzana Islam",
-    role: "Owner, Kotha Boutique",
-    body: "আগে অর্ডার নিয়ে গুলিয়ে ফেলতাম। ShopPilot BD দিয়ে এখন প্রতিদিনের সেল আর লাভ এক জায়গায় দেখতে পাই।",
-  },
-  {
-    name: "Tanvir Ahmed",
-    role: "Founder, Dhaka Leather Co.",
-    body: "The COD tracking alone saved us from at least 30,000 taka in lost parcels last month. Absolute must-have.",
-  },
-  {
-    name: "Nusrat Jahan",
-    role: "Seller, Nusrat's Closet",
-    body: "Finally a tool that speaks my language — Taka, courier, bKash. No more Google Sheets at 2 AM.",
-  },
+const builtForItems = [
+  { title: "Facebook page sellers", desc: "Turn Messenger orders into a tidy pipeline." },
+  { title: "Instagram sellers", desc: "Track DM orders, stock and profit in one place." },
+  { title: "Boutique businesses", desc: "Manage 3-pieces, sarees and seasonal drops." },
+  { title: "Home-food businesses", desc: "Plan daily orders and ingredient costs." },
+  { title: "Cosmetics sellers", desc: "Track batches, expiry and re-order stock." },
+  { title: "Handmade product sellers", desc: "Price custom items with real material cost." },
 ];
 
-function Testimonials() {
+function BuiltFor() {
   return (
     <section
-      id="testimonials"
+      id="built-for"
       className="border-y border-border bg-muted/30 py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Loved by sellers
+            Built for
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            What Bangladeshi sellers are saying
+            Made for Bangladesh's online sellers
           </h2>
+          <p className="mt-3 text-muted-foreground">
+            Whether you sell on a Facebook page, Instagram, or from home —
+            BepariOS BD is built for you.
+          </p>
         </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} className="border-border/70">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {builtForItems.map((b) => (
+            <Card key={b.title} className="border-border/70">
               <CardContent className="p-6">
-                <MessageCircle className="h-5 w-5 text-primary" />
-                <p className="mt-4 text-sm leading-relaxed">"{t.body}"</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 font-semibold text-primary">
-                    {t.name.charAt(0)}
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                  </div>
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <Store className="h-5 w-5" />
                 </div>
+                <h3 className="mt-4 text-lg font-semibold">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{b.desc}</p>
               </CardContent>
             </Card>
           ))}
@@ -479,20 +475,20 @@ function CTA() {
         <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-sm sm:p-14">
           <ShieldCheck className="mx-auto h-10 w-10 text-primary" />
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Ready to take control of your shop?
+            Start with the free seller tools
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Join thousands of Bangladeshi sellers who trust ShopPilot BD to run
-            their daily operations. 14 days free, no card required.
+            No sign-up needed to use the calculators and invoice generator. Or
+            preview the full dashboard with demo data.
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Button size="lg" asChild>
-              <Link to="/signup">
-                Create your free account <ArrowRight className="ml-1 h-4 w-4" />
+              <Link to="/tools">
+                Use Free Seller Tools <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link to="/login">I already have an account</Link>
+              <Link to="/dashboard">View Dashboard Demo</Link>
             </Button>
           </div>
         </div>

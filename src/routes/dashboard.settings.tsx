@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 
 export const Route = createFileRoute("/dashboard/settings")({
-  head: () => ({ meta: [{ title: "Settings — ShopPilot BD" }] }),
+  head: () => ({ meta: [{ title: "Settings — BepariOS BD" }] }),
   component: SettingsPage,
 });
 
